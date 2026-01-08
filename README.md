@@ -50,9 +50,11 @@ color_titles = "#BBBBBB"
 
 ## Launching the app and authenticating
 
-Launch the app with the curverses command and authenticate with username and password. RETURN key to confirm.
+Launch the app with the curverses command and authenticate with username and password.
 
 <img width="491" height="322" alt="image" src="https://github.com/user-attachments/assets/c404b9ac-f527-489e-899b-ee41f86f9b19" />
+
+Confirm by hitting the RETURN key. Quit the app by hitting the ESC key.
 
 ## The application window
 
