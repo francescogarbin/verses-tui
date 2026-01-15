@@ -2,7 +2,7 @@
 
 A Linux TUI front-end application for Verses.
 
-<img width="1242" height="719" alt="image" src="https://github.com/user-attachments/assets/a432ba60-f26f-4fe0-8e54-a73c55f9c20d" />
+<img width="1256" height="731" alt="image" src="https://github.com/user-attachments/assets/74ad1317-9b00-41a6-b203-b3cf0947189a" />
 
 ## Verses aims at micro-data-sovereignty
 
@@ -31,34 +31,19 @@ The configuration file adopts the TOML format and is named verses-tui.toml.
 Edit $XDG_CONFIG_HOME/verses-tui/config.toml in the server default value with your address or URL of choice. Relaunch the app to see the effects of your edits. The server address is always in quotes.  
 
 [server]
-
 address = "<ip address v4 or url, examples: 1.2.3.4, http://verses.notsecure.com, https://www.mypersonalnotes.com>"
-
-## Customizing colors
-
-Edit $XDG_CONFIG_HOME/verses-tui/config.toml in the Colors section and replace the default HTML colors with colors of your choice. Relaunch the app to see the effects of your edits.
-
-[colors]
-
-color_plain = "#5E81AC"
-
-color_strong = "#BBBBBB"
-
-color_warning = "#BC4C4D"
-
-color_titles = "#BBBBBB"
 
 ## Launching the app and authenticating
 
-Launch the app with the curverses command and authenticate with username and password.
+Launch the app with the curverses command and authenticate with username and password created registering on the Verses web application. 
 
-<img width="491" height="322" alt="image" src="https://github.com/user-attachments/assets/c404b9ac-f527-489e-899b-ee41f86f9b19" />
+<img width="482" height="404" alt="image" src="https://github.com/user-attachments/assets/813344d3-f846-4d87-a8ba-2e05b9ace23e" />
 
 Confirm by hitting the RETURN key. Quit the app by hitting the ESC key.
 
-## The application window
+The server address is entered once, saved or updated in the configuration file and filled from configuration at subsequent launches.
 
-<img width="1100" height="706" alt="verses-tui-panels" src="https://github.com/user-attachments/assets/295994d5-e667-4e56-a0e8-3ad48ccb403d" />
+## The application window
 
 The interface is minimal. It consists of three panels and a bottom toolbar. 
 
@@ -70,19 +55,19 @@ Notes list panel. A list of your notes in the currently selected notebook. The p
 
 Note preview panel. A preview of the content of your currently selected note, text is always wrapped, no markdown formatting is applied. To edit the note, hit the RETURN key to launch the system editor configured in the $EDITOR environment variable.
 
-Toobar. A context-sensitive toolbar displaying the commands available for the currently selected item. The toolbar commands reflect the right-most selected item: when a notebook is the right-most selected item, the toolbar displays and process commands that affect notebooks such as new, edit, delete. When a note is the right-most selected item, the toolbar displays and process commands that affect notes such as:
+Toobar. App name, version and shortcuts to common commands, available with CTRL+key.
 
-- create new note
+## The menu system
 
-- move the selected note to another notebook
+<img width="1199" height="698" alt="image" src="https://github.com/user-attachments/assets/59e04809-98b3-4c9a-9344-ade5d4a036b7" />
 
-- delete the selected note
+The menu is contextual and its items reflect the operations available for the currently selected item.
 
-- find text in notes
+<img width="819" height="347" alt="image" src="https://github.com/user-attachments/assets/6a658479-ace1-4b9b-a370-b3bf65bf2107" />
 
-The toolbar displays two commands that are always available:
-- sync with the server
-- show the help dialog 
+When a Notebook is selected, only Notebook-related actions are listed.
+
+When a note is selected, actions can be performed on the selected note as well as on the notebook containing the note.   
 
 ## Operating the application with the keyboard
 
@@ -134,5 +119,18 @@ Select a notebook and hit the corresponding key to delete the selected botebook.
 
 ## Creating a new note
 
-Select a noteb
+Open the menu, select New note in the selected notebook. A new empty note appears at the top of the Notes list, the Note Preview panel invites you to fill with your editor.
 
+## Synchronizing
+
+Verses TUI does not store data locally. It only consumes data from the server and keeps it volatile in RAM, sync'ing with the server at launch and downloading all notes and the corresponding notebooks.
+
+<img width="411" height="221" alt="image" src="https://github.com/user-attachments/assets/2bb4d6fe-a4c1-43ac-8735-ffef62f5661b" />
+
+A dedicated keybinding allows further synchronizations while the app is running and the sync state is reflected by the "pill" located on the bottom-right corner of the app window.
+
+## Backlog / TODO's
+
+- color themes in configuration
+- user registration via TUI
+- ...and soooo much more!
