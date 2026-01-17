@@ -28,10 +28,30 @@ The configuration file adopts the TOML format and is named verses-tui.toml.
 
 ## Configuring the server address or URL
 
-Edit $XDG_CONFIG_HOME/verses-tui/config.toml in the server default value with your address or URL of choice. Relaunch the app to see the effects of your edits. The server address is always in quotes.  
+Edit $XDG_CONFIG_HOME/verses-tui/config.toml in the server default value with your address or URL of choice. Relaunch the app to see the effects of your edits.
 
+The server address is always in quotes and includes Verses API port, default is 8000.
+
+#### TOML Sintax
+
+```toml
 [server]
-address = "<ip address v4 or url, examples: 1.2.3.4, http://verses.notsecure.com, https://www.mypersonalnotes.com>"
+address = "<examples: 1.2.3.4:8000, http://verses.notsecure.com:8000, https://www.verses.me:8000>"
+```
+
+#### Examples
+
+1. Your Verses server is located at verses.mydomain.me, Verses API port was not changed and therefore sits at 8000.
+```toml
+[server]
+address = "verses.mydomain.com:8000"
+```
+
+2. You're testing Verses and Verses-TUI on your local machine.
+```toml
+[server]
+address = "localhost:8000"
+```
 
 ## Launching the app and authenticating
 
