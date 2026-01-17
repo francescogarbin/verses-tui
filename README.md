@@ -20,7 +20,7 @@ Verses TUI is a self-contained Linux terminal application written in modern C++.
 
 ## Configuring Verses TUI
 
-You configure Verses TUI via dotfiles located accordingly to the XDG Base Directory Specification (https://specifications.freedesktop.org/basedir/latest/).
+You configure Verses TUI via dotfiles located accordingly to the XDG Base Directory, see https://specifications.freedesktop.org/basedir/latest/.
 
 Configuration is stored in $XDG_CONFIG_HOME/verses-tui. $XDG_CONFIG_HOME generally maps to $HOME/.config.
 
