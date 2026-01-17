@@ -6,7 +6,7 @@ A Linux TUI front-end application for Verses.
 
 ## Verses aims at micro-data-sovereignty
 
-Verses is a note taking server-side application providing aiming at personal data sovereignty.
+Verses is a note taking server-side application aiming at personal data sovereignty.
 
 Note taking is an essential task of our digital lives, Verses lets you host and control your notes and personal memories on your own server.
 
