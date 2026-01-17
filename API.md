@@ -1,3 +1,5 @@
+# TODO: translate this s*t in english
+
 # Verses API Reference
 
 Documentazione delle API REST per l'applicazione di note-taking Verses.
