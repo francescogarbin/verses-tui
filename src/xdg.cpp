@@ -1,3 +1,4 @@
+#include "globals.hpp"
 #include "xdg.hpp"
 #include <cstdlib>
 #include <sys/stat.h>
@@ -48,6 +49,10 @@ bool create_directory_recursive(const std::string& path) noexcept {
 
 namespace xdg {
 
+std::string xdg_path(const std::string &base) {
+    return base + FOLDER_SEPARATOR + APP_NAME; 
+}
+
 std::string config_dir() noexcept {
     const char* xdg_config = std::getenv("XDG_CONFIG_HOME");
     std::string base;
@@ -58,7 +63,7 @@ std::string config_dir() noexcept {
         base = get_home_dir() + "/.config";
     }
 
-    return base + "/verses-tui";
+    return xdg_path(base); //base + FOLDER_SEPARATOR + APP_NAME;
 }
 
 std::string cache_dir() noexcept {
@@ -71,7 +76,7 @@ std::string cache_dir() noexcept {
         base = get_home_dir() + "/.cache";
     }
 
-    return base + "/verses-tui";
+    return xdg_path(base); // base + "./curverses";
 }
 
 bool ensure_directories() noexcept {

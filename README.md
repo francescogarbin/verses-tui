@@ -154,3 +154,53 @@ A dedicated keybinding allows further synchronizations while the app is running 
 - color themes in configuration
 - user registration via TUI
 - ...and soooo much more!
+
+## Building from Source
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+- A C++17 compatible compiler (GCC 8+ or Clang 7+)
+- CMake 3.14 or higher
+- libcurl development headers
+- Git
+
+On Debian/Ubuntu:
+```bash
+sudo apt install build-essential cmake libcurl4-openssl-dev git
+```
+
+On Arch Linux:
+```bash
+sudo pacman -S base-devel cmake curl git
+```
+
+On Fedora:
+```bash
+sudo dnf install gcc-c++ cmake libcurl-devel git
+```
+
+### Building
+
+Clone the repository and build:
+
+```bash
+git clone https://github.com/yourusername/verses-tui.git
+cd verses-tui
+mkdir build && cd build
+cmake ..
+make
+```
+
+The compiled binary `curverses` will be available in the `build` directory.
+
+### Installing
+
+To install system-wide:
+
+```bash
+sudo make install
+```
+
+This installs `curverses` to `/usr/local/bin` by default.

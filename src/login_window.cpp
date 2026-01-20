@@ -14,11 +14,9 @@ namespace nord {
     const Color frost = Color::RGB(136, 192, 208);    // nord8
 }
 
-ftxui::Component LoginWindow(
-    const std::string& initial_server,
-    LoginCallback on_login,
-    ErrorCallback on_error
-) {
+ftxui::Component LoginWindow(const std::string& initial_server,
+                             LoginCallback on_login,
+                             ErrorCallback on_error) {
     // State
     auto server = std::make_shared<std::string>(initial_server);
     auto username = std::make_shared<std::string>();
@@ -46,19 +44,20 @@ ftxui::Component LoginWindow(
     // Main component with rendering
     return Renderer(inputs, [=] {
         // Header box with title and tagline
-        auto header = window(
+        auto header = vbox(
             text(""),
             vbox({
                 text("Verses") | bold | center,
                 text("Code is poetry, servers host verses") | center,
-            })
+            }),
+            text("")
         ) | color(nord::frost);
 
         // Input fields with window-style borders (label in top border)
         auto server_field = window(
-            text("Server address:") | color(nord::frost),
+            text("Server address:port:") | color(nord::frost),
             server_input->Render()
-        ) | color(nord::frost);
+        ) | bgcolor(nord::bg) | color(nord::frost);
 
         auto username_field = window(
             text("Username:") | color(nord::frost),
@@ -73,10 +72,12 @@ ftxui::Component LoginWindow(
         // Version text
         auto version = text("v.1.0") | dim | center;
 
-        // Main dialog content
-        auto dialog = vbox({
-            header,
-            text(""),
+        // The login dialog with titlebar and content
+        auto dialog_titlebar = vbox({
+            header
+        }) | size(WIDTH, EQUAL, 50) | bgcolor(nord::bg);
+       
+        auto dialog_content = vbox({
             server_field,
             text(""),
             username_field,
@@ -85,10 +86,18 @@ ftxui::Component LoginWindow(
             text(""),
             (*is_loading
                 ? text("Authenticating...") | color(nord::frost) | center
-                : text("")),
-            filler(),
-            version,
+                : text(""))
         }) | size(WIDTH, EQUAL, 50) | bgcolor(nord::bg);
+
+        auto dialog = vbox({
+            vbox({
+                dialog_titlebar,
+                separator() | color(nord::frost),
+                dialog_content,
+            }) | borderStyled(LIGHT, nord::frost),
+            filler(),
+            version
+        });
 
         return vbox({
             filler(),
